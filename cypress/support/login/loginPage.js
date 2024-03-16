@@ -3,31 +3,31 @@
 const url = Cypress.config("baseUrl");
 let txtEmail = '[data-test=email]';
 let txtSenha = '[data-test=passwd]';
-let btmEntrar = "//button[contains(text(), 'Entrar')]"
+let btmEntrar = "//button[contains(text(), 'Entrar')]";
 let lblMensagemBenvindo = "Bem vindo";
+
 class loginPage {
-    
-    getUrl(){
-return cy.visit(url);
+
+    getUrl() {
+        return cy.visit(url);
     }
 
-    getTxtEmail(){
+    getTxtEmail() {
         return txtEmail;
     }
 
-    getTxtSenha(){
-        return         txtSenha;
+    getTxtSenha() {
+        return txtSenha;
     }
 
-    getBtmEntrar(){
+    getBtmEntrar() {
         return btmEntrar;
     }
 
-    getMensagemBemVindo(){
-        return  "//*[starts-with(text(), '"+lblMensagemBenvindo+"')]";
-    }
-    
+    getMensagemBemVindo() {
+        return "//*[starts-with(text(), '" + lblMensagemBenvindo + "')]";
     }
 
+}
 
 export default new loginPage;

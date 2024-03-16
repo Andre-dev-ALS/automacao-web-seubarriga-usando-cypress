@@ -18,24 +18,3 @@ require('cypress-xpath')
 
 // Alternatively you can use CommonJS syntax:// require('./commands')
 /// <reference types="Cypress" />
-
-after(function() {
-
-  if(this.currentTest.state == 'passed'){
-cy.screenshot(this.currentTest.title + '(passed)', {overwrite : true})
-  }else{
-    cy.screenshot(this.currentTest.title + '(failed)')
-
-  }
-
-  
-})
-
-Cypress.Screenshot.defaults({
-    disableTimersAndAnimations: false // se necessário, ajuste outras configurações de captura de screenshot aqui
-  });
-  
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false;
-  });
-  

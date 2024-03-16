@@ -2,32 +2,31 @@
 
 import { expect } from "chai";
 import loginPage from "../login/loginPage"
-import webActions from '../commandsWebActions'
+import webActions from '../webActions'
 
 class loginLogic {
 
-    acessarAplicacao(){
+    acessarAplicacao() {
+        
         loginPage.getUrl();
     }
-    
-    preencherCampoEmail(){
-webActions.wright(loginPage.getTxtEmail(), 'emailparatestesautomacao@gmail.com', 5000);
+
+    preencherCampoEmail() {
+        webActions.wright(loginPage.getTxtEmail(), 'emailparatestesautomacao@gmail.com', 5000);
     }
 
-    preencherCampoSenha(){
-//cy.wright(loginPage.getTxtSenha(), 'automacaoteste')
+    preencherCampoSenha() {
         webActions.wright(loginPage.getTxtSenha(), 'automacaoteste');
     }
-    clicarEmEntrar(){
-        //cy.click(loginPage.getBtmEntrar());
+
+    clicarEmEntrar() {
         webActions.click(loginPage.getBtmEntrar());
-}
-validarUsuarioLogado(){
-webActions.validateText(loginPage.getMensagemBemVindo(), 'Bem vindo');
+    }
 
-
-   
-}    
+    validarUsuarioLogado() {
+        webActions.validateText(loginPage.getMensagemBemVindo(), 'Bem vindo');
+    }
 
 }
+
 export default new loginLogic;
