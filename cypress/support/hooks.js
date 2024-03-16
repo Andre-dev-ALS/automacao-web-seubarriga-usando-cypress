@@ -3,10 +3,12 @@
 class hooks{}
 
 after(1, function() {
+  let currentDateAndTime = new Date();
+let fileName = this.currentTest.title;
   if(this.currentTest.state == 'passed'){
-cy.screenshot(this.currentTest.title + '(passed)', {overwrite : true})
+cy.screenshot('passed/' + fileName + '-(passed)-' + currentDateAndTime);
   }else{
-    cy.screenshot(this.currentTest.title + '(failed)')
+    cy.screenshot('failed/' + fileName + '-(failed)-' + currentDateAndTime);
   }  
 })
 
