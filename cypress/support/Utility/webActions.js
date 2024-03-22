@@ -12,11 +12,30 @@ class WebActions {
 
     click(element, waitingTime) {
         if (waitingTime == undefined || waitingTime <= 0) {
+            cy.get(element).click();
+        } else {
+            cy.get(element, { timeout: '"+waitingTime+"' }).click();
+        }
+    }
+
+    clickByXpath(element, waitingTime) {
+        if (waitingTime == undefined || waitingTime <= 0) {
             cy.xpath(element).click();
         } else {
             cy.xpath(element, { timeout: '"+waitingTime+"' }).click();
         }
     }
+
+    validateVisibleElementByXpath(element, waitingTime) {
+        if (waitingTime == undefined || waitingTime <= 0) {
+            cy.xpath(element)
+                .should('visible')
+        } else {
+            cy.xpath(element, { timeout: '"+timeout+"' })
+                .should('visible')
+        }
+    }
+
 
     validateText(element, value, waitingTime) {
         if (waitingTime == undefined || waitingTime <= 0) {

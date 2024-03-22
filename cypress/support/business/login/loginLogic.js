@@ -19,7 +19,7 @@ class LoginLogic {
     }
 
     clicarEmEntrar() {
-        WebActions.click(LoginPage.getBtmEntrar());
+        WebActions.clickByXpath(LoginPage.getBtmEntrar());
     }
 
     validarUsuarioLogado() {

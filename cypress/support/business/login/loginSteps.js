@@ -1,6 +1,5 @@
 /* global Given, Then, When */
 Cypress.on('uncaught:exception', () => false)
-
 import { Given, Then, When, And } from "cypress-cucumber-preprocessor/steps"
 import LoginLogic from '../login/loginLogic';
 
