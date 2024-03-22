@@ -6,7 +6,7 @@ let txtSenha = '[data-test=passwd]';
 let btmEntrar = "//button[contains(text(), 'Entrar')]";
 let lblMensagemBenvindo = "Bem vindo";
 
-class loginPage {
+class LoginPage {
 
     getUrl() {
         return cy.visit(url);
@@ -30,4 +30,4 @@ class loginPage {
 
 }
 
-export default new loginPage;
+export default new LoginPage;
