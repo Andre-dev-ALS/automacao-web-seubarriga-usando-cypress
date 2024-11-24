@@ -1,15 +1,13 @@
-/// <reference types="Cypress" />
-
 const url = Cypress.config("baseUrl");
 let txtEmail = '[data-test=email]';
 let txtSenha = '[data-test=passwd]';
 let btmEntrar = "//button[contains(text(), 'Entrar')]";
-let lblMensagemBenvindo = "Bem vindo";
+let lblLogin = "//a[contains(text(), 'Login')]";
 
 class LoginPage {
 
     getUrl() {
-        return cy.visit(url);
+        return url;
     }
 
     getTxtEmail() {
@@ -24,8 +22,8 @@ class LoginPage {
         return btmEntrar;
     }
 
-    getMensagemBemVindo() {
-        return "//*[starts-with(text(), '" + lblMensagemBenvindo + "')]";
+    getLblLogin(){
+        return lblLogin;
     }
 
 }

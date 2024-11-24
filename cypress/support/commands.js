@@ -1,26 +1,35 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+
+Cypress.Commands.add('write', (element, value, waitingTime) => {
+    if (waitingTime == undefined || waitingTime <= 0) {
+        cy.get(element).type(value);
+    } else {
+        cy.get(element, { timeout: '"+waitingTime+"' }).type(value);
+    }
+
+})
+Cypress.Commands.add('clickElement', (element, waitingTime) => {
+    if (waitingTime == undefined || waitingTime <= 0) {
+        cy.get(element).click();
+    } else {
+        cy.get(element, { timeout: '"+waitingTime+"' }).click();
+    }
+})
+
+
+Cypress.Commands.add('clickElementByXpath', (element, waitingTime) => {
+    if (waitingTime == undefined || waitingTime <= 0) {
+        cy.xpath(element).click();
+    } else {
+        cy.xpath(element, { timeout: '"+waitingTime+"' }).click();
+    }
+})
+
+Cypress.Commands.add('validateVisibleElementByXpath', (element, waitingTime) =>{if (waitingTime == undefined || waitingTime <= 0) {
+        cy.xpath(element)
+            .should('visible')
+    } else {
+        cy.xpath(element, { timeout: '"+timeout+"' })
+            .should('visible')
+    }
+})

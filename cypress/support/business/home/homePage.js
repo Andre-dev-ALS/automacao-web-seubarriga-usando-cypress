@@ -1,8 +1,8 @@
-/// <reference types="Cypress" />
 
+let lblMensagemBenvindo = '//*[starts-with(text(), "Bem vindo")]';
 let btmSettings= '[data-test=menu-settings]';
 let btmSair = "//a[contains(text(), 'Sair')]";
-let lblLogin = "//a[contains(text(), 'Login')]";
+
 class HomePage {
 
     getBtmSettings(){
@@ -13,10 +13,10 @@ class HomePage {
         return btmSair;
     }
 
-    getLblLogin(){
-        return lblLogin;
+    getLblMensagemBemVindo(){
+        return lblMensagemBenvindo;
     }
-    
+
 }
 
 export default new HomePage;

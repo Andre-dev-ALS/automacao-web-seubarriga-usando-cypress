@@ -21,7 +21,6 @@ When("clico em Entrar", () => {
   LoginLogic.clicarEmEntrar();
 })
 
-Then("o usuário é redirecionado  a tela inicial já logado", () => {
-  LoginLogic.validarUsuarioLogado();
+Then('é validado que o usuário foi redirecionado   a tela de login já desconectado', () =>{
+  LoginLogic.validarUsuarioDeslogado();
 })
-

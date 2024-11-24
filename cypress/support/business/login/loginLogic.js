@@ -1,31 +1,28 @@
-/// <reference types="Cypress" />
-
-import { expect } from "chai";
 import LoginPage from "../login/loginPage"
-import WebActions from '../../Utility/webActions'
 
 class LoginLogic {
 
     acessarAplicacao() {
-        LoginPage.getUrl();
+        cy.visit(LoginPage.getUrl());
     }
 
     preencherCampoEmail() {
-        WebActions.wright(LoginPage.getTxtEmail(), 'emailparatestesautomacao@gmail.com', 5000);
+
+cy.write(LoginPage.getTxtEmail(), 'emailparatestesautomacao@gmail.com');
     }
 
     preencherCampoSenha() {
-        WebActions.wright(LoginPage.getTxtSenha(), 'automacaoteste');
+        cy.write(LoginPage.getTxtSenha(), 'automacaoteste', 5000);
     }
 
     clicarEmEntrar() {
-        WebActions.clickByXpath(LoginPage.getBtmEntrar());
+        cy.clickElementByXpath(LoginPage.getBtmEntrar(), 5000);
     }
 
-    validarUsuarioLogado() {
-        WebActions.validateText(LoginPage.getMensagemBemVindo(), 'Bem vindo');
-    }
-
+    validarUsuarioDeslogado(){
+        cy.validateVisibleElementByXpath(LoginPage.getLblLogin());
+    }    
+    
 }
 
 export default new LoginLogic;
