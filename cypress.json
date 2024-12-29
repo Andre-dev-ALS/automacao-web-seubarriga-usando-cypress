@@ -1,4 +1,7 @@
 {
     "testFiles": "**/*.feature",
-    "baseUrl": "https://barrigareact.wcaquino.me"
+    "baseUrl": "https://barrigareact.wcaquino.me",
+    "env": {
+        "TAGS": "@seubarrigareact"
+    }
 }
