@@ -18,4 +18,3 @@ const currentDateAndTime   =
     cy.screenshot('failed/' + fileName + '-(failed)-' + currentDateAndTime);
   }  
 })
-
