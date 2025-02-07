@@ -6,15 +6,24 @@ class AccountLogic {
         cy.clickElementByXpath(AccountPage.getAConta());
     }
 
-    preencherCanmpoNomeDaConta(){
-        cy.write(AccountPage.getTxtNomeDaConta(), `andré${Date.now()}`);
+    preencherCanmpoNomeDaContaAleatorio(){
+        cy.write(AccountPage.getTxtNomeDaConta(), ` AccountPage.getDataNome() ${Date.now()}`);
     }
 
     clicarEmSalvar(){
-cy.clickElementByXpath(AccountPage.getBtnSalvar());
+cy.clickElementByXpath(AccountPage.getBtnSalvar(), 10000);
     }
 validarMensagemContaAdicionada(){
 cy.validateVisibleElementByXpath(AccountPage.getLblContaAdicionada()    );
+}
+
+preencherCanmpoNomeDaConta(){
+    cy.wait(500)
+    cy.write(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNome());
+}
+
+validarMensagemDeErroAoTentarAdicionarUmaConta(){
+    cy.validateVisibleElementByXpath(AccountPage.getLblContaJaExiste());
 }
 
 }

@@ -2,6 +2,8 @@ let contas = '//a[contains(text(), "Contas")]';
 let txtNomeDaConta = '[data-test=nome]';
 let btnSalvar = '//button[contains(., "Salvar")]';
 let lblContaAdicionada = '//*[contains(., "Conta inserida com sucesso!")]';
+let lblContaJaExiste = '//*[contains(., "Erro: Error: Request failed with status code 400")]';
+let dataNome = 'André';
 
 class AccountPage {
 
@@ -21,6 +23,14 @@ class AccountPage {
 return lblContaAdicionada;
     }
         
+    getDataNome(){
+        return dataNome;
+    }
+    
+    getLblContaJaExiste(){
+return lblContaJaExiste;
+    }
+
     }
 
 
