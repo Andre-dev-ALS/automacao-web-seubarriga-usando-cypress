@@ -19,7 +19,7 @@ cy.validateVisibleElementByXpath(AccountPage.getLblContaAdicionada()    );
 
 preencherCanmpoNomeDaConta(){
     cy.wait(500)
-    cy.write(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNome(), 10000);
+    cy.write(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNome());
 }
 
 validarMensagemDeErroAoTentarAdicionarUmaConta(){
