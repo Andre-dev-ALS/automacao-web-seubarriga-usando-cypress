@@ -4,9 +4,9 @@ Funcionalidade: login
 
 Contexto: 
 Dado que o usuário acessa o site do seubarrigareact
-    Quando preencho o campo email
-    E preencho o campo senha
-    Quando clico em Entrar
+    Quando preenche o campo email
+    E preenche o campo senha
+    Quando clica em Entrar
     
 @id_0001 @seubarrigareact
     Cenário: Realizar login com sucesso
@@ -14,5 +14,5 @@ Dado que o usuário acessa o site do seubarrigareact
 
 @id_0002 @seubarrigareact
 Cenário: Realizar logout com sucesso
-Quando clico em Settings
-E clico em Sair
+Quando clica em Settings
+E clica em Sair

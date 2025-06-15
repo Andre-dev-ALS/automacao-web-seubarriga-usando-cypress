@@ -1,39 +1,37 @@
-Cypress.Commands.add('write', (element, value, waitingTime) => {
-    if (waitingTime > 0) {
-        cy.get(element, { timeout: '"+waitingTime+"' })
+let timeout = 0;
+
+Cypress.Commands.add('writeInput', (element, value, waitingTime = 0) => {
+    timeout = Number(waitingTime) > 0 ? Number(waitingTime) : undefined;
+
+    cy.get(element, { timeout })
+        .should('exist')
+        .should('be.visible')
+        .clear()
         .type(value);
-    } else {
-        cy.get(element)
-        .type(value);
-    }
-})
+});
 
 Cypress.Commands.add('clickElement', (element, waitingTime) => {
-    if (waitingTime > 0) {
-        cy.get(element, { timeout: waitingTime })
+    timeout = Number(waitingTime) > 0 ? Number(waitingTime) : undefined;
+
+    cy.get(element, { timeout })
+        .should('exist')
+        .should('be.visible')
         .click();
-    } else {
-        cy.get(element)
-        .click();
-    }
 })
 
 Cypress.Commands.add('clickElementByXpath', (element, waitingTime) => {
-    if (waitingTime > 0) {
-        cy.xpath(element, { timeout: waitingTime })
+    timeout = Number(waitingTime) > 0 ? Number(waitingTime) : undefined;
+
+    cy.xpath(element, { timeout })
+        .should('exist')
+        .should('be.visible')
         .click();
-    } else {
-        cy.xpath(element)
-        .click();
-    }
 })
 
-Cypress.Commands.add('validateVisibleElementByXpath', (element, waitingTime) => {    
-    if (waitingTime > 0) {
-        cy.xpath(element, { timeout: waitingTime })
-        .should('be.visible');
-    } else {
-        cy.xpath(element)
-            .should('visible')
-    }
+Cypress.Commands.add('validateVisibleElementByXpath', (element, waitingTime) => {
+    timeout = Number(waitingTime) > 0 ? Number(waitingTime) : undefined;
+
+    cy.xpath(element, { timeout })
+        .should('exist')
+        .should('be.visible')
 })
