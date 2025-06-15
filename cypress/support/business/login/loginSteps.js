@@ -7,17 +7,17 @@ Given("que o usuário acessa o site do seubarrigareact", () => {
 }
 )
 
-When("preencho o campo email", () => {
+When("preenche o campo email", () => {
   LoginLogic.preencherCampoEmail();
 }
 )
 
-When("preencho o campo senha", () => {
+When("preenche o campo senha", () => {
   LoginLogic.preencherCampoSenha();
 }
 )
 
-When("clico em Entrar", () => {
+When("clica em Entrar", () => {
   LoginLogic.clicarEmEntrar();
 })
 
