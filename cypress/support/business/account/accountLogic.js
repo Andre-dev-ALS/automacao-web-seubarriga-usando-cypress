@@ -1,29 +1,48 @@
-
 import AccountPage from '../account/accountPage';
+
 class AccountLogic {
+
+    preencherCanmpoNomeDaConta(){
+        cy.writeInput(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNome());
+}    
+
+preencherCanmpoNomeDaContaComNovoNome(){
+        cy.writeInput(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNovaConta());
+}    
 
     clicarEmConta(){
         cy.clickElementByXpath(AccountPage.getAConta());
     }
 
-    preencherCanmpoNomeDaContaAleatorio(){
-        cy.write(AccountPage.getTxtNomeDaConta(), ` AccountPage.getDataNome() ${Date.now()}`);
+    clicarEmSalvar(){
+        cy.clickElementByXpath(AccountPage.getBtnSalvar());
     }
 
-    clicarEmSalvar(){
-cy.clickElementByXpath(AccountPage.getBtnSalvar(), 10000);
+    clicarEmDeletarConta(){
+        cy.clickElementByXpath(AccountPage.getADeletarConta());
+    }    
+clicarEmEditarConta(){
+cy.clickElementByXpath(AccountPage.getEditarConta());
+}    
+
+    clicarEmFecharAlerta(){
+        cy.clickElementByXpath(AccountPage.getBtnFecharAlerta());
     }
+    
 validarMensagemContaAdicionada(){
 cy.validateVisibleElementByXpath(AccountPage.getLblContaAdicionada()    );
 }
 
-preencherCanmpoNomeDaConta(){
-    cy.wait(500)
-    cy.write(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNome());
-}
-
 validarMensagemDeErroAoTentarAdicionarUmaConta(){
     cy.validateVisibleElementByXpath(AccountPage.getLblContaJaExiste());
+}
+
+validarMensagemContaDeletada(){
+    cy.validateVisibleElementByXpath(AccountPage.getLblContaDeletada());
+}
+
+validarMensagemContaAlterada(){
+    cy.validateVisibleElementByXpath(AccountPage.getLblContaAlterada());
 }
 
 }

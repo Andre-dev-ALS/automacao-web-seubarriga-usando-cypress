@@ -7,12 +7,11 @@ class LoginLogic {
     }
 
     preencherCampoEmail() {
-
-cy.write(LoginPage.getTxtEmail(), 'emailparatestesautomacao@gmail.com');
+cy.writeInput(LoginPage.getTxtEmail(), 'emailparatestesautomacao@gmail.com');
     }
 
     preencherCampoSenha() {
-        cy.write(LoginPage.getTxtSenha(), 'automacaoteste', 5000);
+        cy.writeInput(LoginPage.getTxtSenha(), 'automacaoteste', 5000);
     }
 
     clicarEmEntrar() {
