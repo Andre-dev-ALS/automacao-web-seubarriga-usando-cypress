@@ -6,6 +6,10 @@ class AccountLogic {
         cy.writeInput(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNome());
 }    
 
+preencherCanmpoNomeDaContaComNovoNome(){
+        cy.writeInput(AccountPage.getTxtNomeDaConta(), AccountPage.getDataNovaConta());
+}    
+
     clicarEmConta(){
         cy.clickElementByXpath(AccountPage.getAConta());
     }
@@ -17,7 +21,10 @@ class AccountLogic {
     clicarEmDeletarConta(){
         cy.clickElementByXpath(AccountPage.getADeletarConta());
     }    
-    
+clicarEmEditarConta(){
+cy.clickElementByXpath(AccountPage.getEditarConta());
+}    
+
     clicarEmFecharAlerta(){
         cy.clickElementByXpath(AccountPage.getBtnFecharAlerta());
     }
@@ -32,6 +39,10 @@ validarMensagemDeErroAoTentarAdicionarUmaConta(){
 
 validarMensagemContaDeletada(){
     cy.validateVisibleElementByXpath(AccountPage.getLblContaDeletada());
+}
+
+validarMensagemContaAlterada(){
+    cy.validateVisibleElementByXpath(AccountPage.getLblContaAlterada());
 }
 
 }
