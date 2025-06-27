@@ -28,6 +28,15 @@ Cypress.Commands.add('clickElementByXpath', (element, waitingTime) => {
         .click();
 })
 
+Cypress.Commands.add('selectOption', (element, value, waitingTime) => {
+    timeout = Number(waitingTime) > 0 ? Number(waitingTime) : undefined;
+console.log(value)
+    cy.get(element, { timeout })
+        .should('exist')
+        .should('be.visible')
+        .select(value);
+})
+
 Cypress.Commands.add('validateVisibleElementByXpath', (element, waitingTime) => {
     timeout = Number(waitingTime) > 0 ? Number(waitingTime) : undefined;
 
